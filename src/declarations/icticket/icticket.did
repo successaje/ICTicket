@@ -1,0 +1,11 @@
+type TicketGenerator = 
+ service {
+   generate: (principal) -> (Result);
+   greet: (text) -> (text);
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: nat;
+ };
+service : () -> TicketGenerator
