@@ -34,7 +34,7 @@ module {
 
                     #ok(Nat32.toNat(i));
                 };
-                case _ #err("No more supply.");
+                case _ #err("Cannot generate anything anymore");
             }
         };
 
@@ -42,6 +42,7 @@ module {
             var temporaryArray = [];
             let i = 0;
             while (i < n) {
+                // generated has to be nat
                 let generated = switch(_generate(caller, to)) {
                     case (#ok(ticketIndex)) { ticketIndex };
                     case (#err (_)) { 0 };    
