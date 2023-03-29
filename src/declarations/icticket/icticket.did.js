@@ -3,6 +3,11 @@ export const idlFactory = ({ IDL }) => {
   const TicketGenerator = IDL.Service({
     'generate' : IDL.Func([IDL.Principal], [Result], []),
     'greet' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'multipleGenerate' : IDL.Func(
+        [IDL.Principal, IDL.Nat],
+        [IDL.Vec(IDL.Nat)],
+        [],
+      ),
   });
   return TicketGenerator;
 };

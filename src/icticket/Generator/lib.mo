@@ -2,7 +2,7 @@ import Nat32 "mo:base/Nat32";
 import Array "mo:base/Array";
 import Result "mo:base/Result";
 import Time "mo:base/Time";
-
+import Iter "mo:base/Iter";
 import Types "types";
 
 module {
@@ -23,7 +23,7 @@ module {
             ledger[i];
         };
 
-        public func _generate(caller : Principal, to : Principal) : async Result.Result<(Nat), Text> {
+        public func _generate(caller : Principal, to : Principal) : Result.Result<(Nat), Text> {
             switch(_getTicketIndex()) {
                 case (?i) {
                     ledger[Nat32.toNat(i)] := ?{
@@ -38,19 +38,27 @@ module {
             }
         };
 
-        public func _multipleGenerator(caller : Principal, to : Principal, n : Nat) : async [Nat] {
-            var temporaryArray = [];
-            let i = 0;
-            while (i < n) {
-                // generated has to be nat
-                let generated = switch(_generate(caller, to)) {
+        public func _multipleGenerator(caller : Principal, to : Principal, n : Nat) : [Nat] {
+            var temporaryArray = [n];
+            for (i in Iter.range(0, n)) {
+                let generated : Nat = switch(_generate(caller, to)) {
                     case (#ok(ticketIndex)) { ticketIndex };
-                    case (#err (_)) { 0 };    
+                    case (#err (_)) { 0 };
                 };
                 temporaryArray := Array.append(temporaryArray, [i]);
-                i += 1;
 
             };
+            // let i = 0;
+            // while (i < n) {
+            //     // generated has to be nat
+            //     let generated = switch(_generate(caller, to)) {
+            //         case (#ok(ticketIndex)) { ticketIndex };
+            //         case (#err (_)) { 0 };    
+            //     };
+            //     temporaryArray := Array.append(temporaryArray, [i]);
+            //     i += 1;
+
+            // };
             return temporaryArray;
         };
 

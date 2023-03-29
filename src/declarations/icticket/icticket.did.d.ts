@@ -6,5 +6,6 @@ export type Result = { 'ok' : bigint } |
 export interface TicketGenerator {
   'generate' : ActorMethod<[Principal], Result>,
   'greet' : ActorMethod<[string], string>,
+  'multipleGenerate' : ActorMethod<[Principal, bigint], Array<bigint>>,
 }
 export interface _SERVICE extends TicketGenerator {}

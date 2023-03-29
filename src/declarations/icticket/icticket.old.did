@@ -1,0 +1,9 @@
+type Result = 
+ variant {
+   err: text;
+   ok: nat;
+ };
+service : {
+  generate: (principal) -> (Result);
+  greet: (text) -> (text);
+}

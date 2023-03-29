@@ -9,8 +9,9 @@ shared actor class TicketGenerator(){
   });
 
   public shared(msg) func generate(to : Principal) : async Result.Result<(Nat), Text> {
-    await _Ticket._generate(msg.caller, to);
+     _Ticket._generate(msg.caller, to);
   };
+  
   public shared(msg) func multipleGenerate(to : Principal, n : Nat) : async [Nat] {
     _Ticket._multipleGenerator(msg.caller, to, n);
   };

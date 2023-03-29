@@ -2,6 +2,7 @@ type TicketGenerator =
  service {
    generate: (principal) -> (Result);
    greet: (text) -> (text);
+   multipleGenerate: (principal, nat) -> (vec nat);
  };
 type Result = 
  variant {
