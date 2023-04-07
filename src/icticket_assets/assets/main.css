@@ -35,3 +35,8 @@ button[type="submit"] {
 #greeting:empty {
     display: none;
 }
+
+
+h4 {
+    text-align: center;
+}
