@@ -1,8 +1,16 @@
 type TicketGenerator = 
  service {
    generate: (principal) -> (Result);
+   getOwner: (nat) -> (opt Ticket);
    greet: (text) -> (text);
    multipleGenerate: (principal, nat) -> (vec nat);
+   whoami: () -> (principal);
+ };
+type Ticket = 
+ record {
+   generatedAt: int;
+   owner: principal;
+   statement: text;
  };
 type Result = 
  variant {

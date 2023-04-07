@@ -11,12 +11,57 @@
   <body>
     <main>
       <img src="logo.png" alt="DFINITY logo" />
-      <form action="#">
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
+      <!-- who am i -->
+      <div class="form-wrap">
+        <h4>whoami api. </h4>
+        <form data-form="whoAmi" action="#">
+          <label for="name">Click to get principal:  &nbsp;</label>
+          <button type="submit">Click Me!</button>
+        </form>
+        <section id="greeting"></section>
+      </div>
+      <!-- greeting  -->
+      <div class="form-wrap">
+        <h4>generate api. </h4>
+        <form data-form="generate" action="#">
+          <label for="name">Enter your principal: &nbsp;</label>
+          <input id="name" alt="Name" type="text" />
+          <button type="submit">Click Me!</button>
+        </form>
+        <section id="greeting"></section>
+      </div>
+      <!-- get owner wrap  -->
+      <div class="form-wrap">
+        <h4>getOwner api. </h4>
+        <form data-form="getOwner" action="#">
+          <label for="name">Enter net: &nbsp;</label>
+          <input id="name" alt="Name" type="text" />
+          <button type="submit">Click Me!</button>
+        </form>
+        <section id="greeting"></section>
+      </div>
+      <!-- greet  -->
+      <div class="form-wrap">
+        <h4>greet / greeting api. </h4>
+        <form data-form="greet" action="#">
+          <label for="name">Enter your name: &nbsp;</label>
+          <input id="name" alt="Name" type="text" />
+          <button type="submit">Click Me!</button>
+        </form>
+        <section id="greeting"></section>
+      </div>
+      <!-- multiple generate  -->
+      <div class="form-wrap">
+        <h4>multipleGenerate api. </h4>
+        <form data-form="mulGenerate" action="#">
+          <label for="name">Enter your name: &nbsp;</label>
+          <input id="name" alt="Name" type="text" placeholder="enter your principal" />
+          <input id="nat" type="text" placeholder="enter your nat">
+          <button type="submit">Click Me!</button>
+        </form>
+        <section id="greeting"></section>
+      </div>
+      
     </main>
   </body>
 </html>
